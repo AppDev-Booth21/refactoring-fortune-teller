@@ -2,9 +2,10 @@ class FortunesController < ApplicationController
   def horoscopes
     #@horoscope = "Many of your personal goals have either been met or are in progress, Gemini, and you're feeling exhilarated. However, people around you might have their hands out. You may be asked to contribute to charities or make personal loans to people you don't know well. You want to help whenever you can, but be discriminating about whom you help now. Some may be less than trustworthy."
 
+    @this_zodiac = params.fetch("sign")
    @all_zodiacs = Zodiac.list
-   @this_zodiac = @all_zodiacs.fetch("sign".to_sym)
-   @horoscope = @this_zodiac.fetch(:horoscope)
+   @that_zodiac = @all_zodiacs.fetch(@this_zodiac.to_sym)
+   @horoscope = @that_zodiac.fetch(:horoscope)
 
     @array_of_numbers = Array.new
 

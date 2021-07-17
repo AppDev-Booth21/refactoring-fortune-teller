@@ -1,3 +1,13 @@
-<h1>hi</h1>
+<h1><%= @this_zodiac.capitalize %></h1>
 
-<%= Zodiac.list %>
+<p><%= @horoscope %></p>
+
+<p>Your lucky numbers for today are:</p>
+
+<ul>
+  <% @array_of_numbers.each do |a_num| %>
+    <li>
+      <%= a_num %>
+    </li>
+  <% end %>
+</ul>
